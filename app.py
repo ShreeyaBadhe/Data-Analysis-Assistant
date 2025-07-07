@@ -3,14 +3,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from functools import reduce
-from dotenv import load_dotenv
+
 import os
 from huggingface_hub import InferenceClient
-
+import streamlit as st
 # Load API key
-load_dotenv()
-HF_API_KEY = os.getenv("HF_API_KEY")
 
+HF_API_KEY = st.secrets["HF_API_KEY"]
 if not HF_API_KEY:
     st.error("❌ Hugging Face API key not found. Set HF_API_KEY in your .env file.")
     st.stop()
